@@ -13,6 +13,7 @@ function updateCountdown() {
   );
   const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+  const miliSeconds = Math.floor((timeLeft % 1000) / 10); // Correct calculation
 
   // Display the countdown
   document.getElementById("countdown").innerHTML = `${months
@@ -21,11 +22,10 @@ function updateCountdown() {
     .toString()
     .padStart(2, "0")}h :   ${minutes.toString().padStart(2, "0")}m :   ${seconds
     .toString()
-    .padStart(2, "0")}s `;
+    .padStart(2, "0")}s :   ${miliSeconds.toString().padStart(2, "0")}ms`;
 
-  // Update the countdown every second for smooth display
-  setTimeout(updateCountdown, 1000);
+  // Update the countdown every 10ms for smooth display
+  setTimeout(updateCountdown, 100);
 }
 
 document.addEventListener("DOMContentLoaded", updateCountdown);
-
