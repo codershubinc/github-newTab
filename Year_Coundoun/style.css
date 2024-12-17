@@ -1,4 +1,9 @@
-/* Style for the whole body */
+/* @import url("https://fonts.googleapis.com/css2?family=Playwrite+MX+Guides&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+MX+Guides&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&display=swap');
+
+
+
 body {
   margin: 0;
   padding: 0;
@@ -6,9 +11,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Arial", sans-serif;
   overflow: hidden;
   background-color: black;
+  font-family: "Delius Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .grid-background {
@@ -24,6 +31,7 @@ body {
   opacity: 0.5;  */
   display: flex;
   flex-wrap: wrap;
+  background-image: url('kali_dark_0.jpg');
 }
 
 /* .grid-box {
@@ -69,6 +77,9 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  font-family: "Delius Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .countdown {
@@ -98,7 +109,7 @@ body {
   background-color: #ebedf0; /* Default light gray */
   border-radius: 2px;
   position: relative; /* Make room for tooltip */
-  border: #333 1px solid ;
+  border: rgb(0, 0, 0) 1px solid;
 }
 
 /* Tooltip styling */
@@ -123,4 +134,10 @@ body {
 .grid-item:hover .tooltip {
   visibility: visible;
   opacity: 1;
+}
+
+#months-left {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto; 
+  font-style: normal;
 }

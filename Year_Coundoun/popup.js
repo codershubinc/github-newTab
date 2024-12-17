@@ -15,7 +15,7 @@ function updateCountdown() {
   const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
   const miliSeconds = Math.floor((timeLeft % 1000) / 10); // Correct calculation
 
-  console.log(months);
+
 
 
   // Display the countdown
@@ -44,7 +44,7 @@ function updateCountdown() {
 
 
   document.getElementById("months-left").innerHTML = `
-      ${months <= 0 ? '\n NO MONTHS R LEFT' : ''
+      ${months <= 0 ? '\nLess than a month left' : ''
     }
       `
   // Update the countdown every 10ms for smooth display
@@ -53,18 +53,21 @@ function updateCountdown() {
 
 const gitContribution = async () => {
   try {
+    const todaysDate = new Date().toISOString().split('T')[0];
     // Fetch contributions data
-    const result = await fetch('https://github-contributions-api.deno.dev/codershubinc.json?flat=true');
+    const result = await fetch('https://github-contributions-api.deno.dev/codershubinc.json?flat=true&from=2024-03-01&to='+todaysDate , { cache: 'no-cache' } );
     const data = await result.json();
+    console.log('data', data);
 
     const gridContainer = document.querySelector('.grid-background'); // Grid container
-
+    gridContainer.innerHTML = '';
+    document.getElementsByClassName('todaysContribution')[0].innerHTML = data['contributions'][data['contributions'].length - 1].contributionCount === 0 ? 'No contribution today' : `You have ${data['contributions'][data['contributions'].length - 1].contributionCount} contributions today`;
     // Generate grid items
     data['contributions'].forEach((item) => {
       const gridItem = document.createElement('div');
       gridItem.classList.add('grid-item');
-      gridItem.style.backgroundColor = item.color || '#ebedf0'; // Set color or default 
-      
+      gridItem.style.backgroundColor = item.color === '#ebedf0' ? '#232121' : item.color || '#ebedf0'; // Set color or default 
+
 
       // Create a tooltip to show contribution details
       const tooltip = document.createElement('div');
@@ -74,7 +77,7 @@ const gitContribution = async () => {
 
       // Append the tooltip to the grid item
       gridItem.appendChild(tooltip);
-      
+
       // Append the grid item to the grid container
       gridContainer.appendChild(gridItem);
     });
@@ -85,6 +88,10 @@ const gitContribution = async () => {
 
 gitContribution()
 
-document.addEventListener("DOMContentLoaded", updateCountdown);
+document.addEventListener("DOMContentLoaded", () => {
+  updateCountdown();
+  gitContribution();
+});
+
 
 // {"color":"#ebedf0","contributionCount":0,"contributionLevel":"NONE","date":"2023-12-20"},
