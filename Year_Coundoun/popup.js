@@ -16,7 +16,7 @@ const contributingMessage = (cnt) => {
   } else if (cnt <= 9) {
     // Message for contributions between 8 and 9
     return 'Excellent work!';
-  } else if (cnt <= 10) {
+  } else if (cnt >= 10 ) {
     return 'Outstanding work!';
 
   } else
