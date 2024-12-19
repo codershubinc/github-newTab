@@ -136,7 +136,7 @@ body {
   opacity: 1;
 }
 
-#months-left {
+#months-left , .todaysContributionMsg {
   font-family: "Dancing Script", cursive;
   font-optical-sizing: auto; 
   font-style: normal;
