@@ -53,7 +53,13 @@ function updateCountdown() {
 
 const gitContribution = async () => {
   try {
-    const todaysDate = new Date().toISOString().split('T')[0];
+    const todaysDate =    new Date().getFullYear() + '-' + 
+    String(new Date().getMonth() + 1).padStart(2, '0') + '-' + 
+    String(new Date().getDate()).padStart(2, '0');
+    console.log('todaysDate', todaysDate);
+    console.log('Date of now = ' , new Date().getDate()+'-'+Number(new Date().getMonth()+1)+'-'+new Date().getFullYear());
+    
+    
     // Fetch contributions data
     const result = await fetch('https://github-contributions-api.deno.dev/codershubinc.json?flat=true&from=2024-03-01&to='+todaysDate , { cache: 'no-cache' } );
     const data = await result.json();
