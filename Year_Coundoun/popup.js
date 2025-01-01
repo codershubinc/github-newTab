@@ -1,19 +1,16 @@
 const contributingMessage = (cnt) => {
     console.log(`Contribution count: ${cnt}`);
 
-    if (!cnt) {
-        // Handle cases where cnt is null, undefined, or 0
-        return '🥺 No contributions yet! Keep going!';
-    } else if (cnt === 1) {
+    if (cnt === 1) {
         // Special message for exactly 1 contribution
         return 'Nice work!';
-    } else if (cnt <= 5) {
+    } else if (cnt > 1) {
         // Message for contributions between 2 and 5
         return 'Awesome work!';
-    } else if (cnt <= 7) {
+    } else if (cnt >= 6) {
         // Message for contributions between 6 and 7
         return 'Great work!';
-    } else if (cnt <= 9) {
+    } else if (cnt >= 8) {
         // Message for contributions between 8 and 9
         return 'Excellent work!';
     } else if (cnt >= 10) {
@@ -21,60 +18,59 @@ const contributingMessage = (cnt) => {
 
     } else
     // Default message for no contributions
-        return '🥺🥺🥺 No work today 🥺🥺🥺';
+        return '🥺 No Contributions today !!!!!';
 }
 
 
 
 function updateCountdown() {
-    const endOfYear = new Date(
-        `December 31, ${new Date().getFullYear()} 23:59:59`
-    ).getTime();
-    const now = new Date().getTime();
+    const endOfYear = new Date(`December 31, ${new Date().getFullYear()} 23:59:59`);
+    const now = new Date();
     const timeLeft = endOfYear - now;
 
-    // Calculate time components
-    const months = Math.floor(timeLeft / (1000 * 60 * 60 * 24 * 30));
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24)) % 30;
-    const hours = Math.floor(
-        (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
+    // Calculate the number of months left
+    const months = endOfYear.getMonth() - now.getMonth() + (endOfYear.getFullYear() - now.getFullYear()) * 12;
+
+    // Calculate the number of days left (without the months)
+    const tempDate = new Date(now);
+    tempDate.setMonth(tempDate.getMonth() + months);
+    const days = Math.floor((endOfYear - tempDate) / (1000 * 60 * 60 * 24));
+
+    // Calculate other components
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-    const miliSeconds = Math.floor((timeLeft % 1000) / 10); // Correct calculation
-
-
-
+    const miliSeconds = Math.floor((timeLeft % 1000) / 10);
 
     // Display the countdown
     document.getElementById("countdown").innerHTML =
         `${months <= 0 ? '' :
-      months
-        .toString()
-        .padStart(2, "0") + "m  : "}
+            months
+                .toString()
+                .padStart(2, "0") + "m  : "}
     
     ${days
-      .toString()
-      .padStart(2, "0")}d 
+            .toString()
+            .padStart(2, "0")}d 
     :
     ${hours
-      .toString()
-      .padStart(2, "0")}h 
-      :
+            .toString()
+            .padStart(2, "0")}h 
+        :
         ${minutes.toString().padStart(2, "0")}m :  
     ${seconds
-      .toString()
-      .padStart(2, "0")}s 
+            .toString()
+            .padStart(2, "0")}s 
         :
     ${miliSeconds
-      .toString()
-      .padStart(2, "0")}ms`;
+            .toString()
+            .padStart(2, "0")}ms`;
 
 
     document.getElementById("months-left").innerHTML = `
-      ${days <= 0 ? '\nLess than a day left' : months <= 0 ? '\nLess than a month left' : ''
-    }
-      `
+        ${days <= 0 ? '\nLess than a day left' : months <= 0 ? '\nLess than a month left' : ''
+        }
+        `
         // Update the countdown every 10ms for smooth display
     setTimeout(updateCountdown, 100);
 }
