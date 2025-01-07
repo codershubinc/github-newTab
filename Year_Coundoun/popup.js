@@ -93,6 +93,7 @@ const gitContribution = async() => {
         gridContainer.innerHTML = '';
         document.getElementsByClassName('todaysContribution')[0].innerHTML = data['contributions'][data['contributions'].length - 1].contributionCount === 0 ? 'No contribution today' : `You have ${data['contributions'][data['contributions'].length - 1].contributionCount} contributions today`;
         document.getElementsByClassName('todaysContributionMsg')[0].innerHTML = contributingMessage(data['contributions'][data['contributions'].length - 1].contributionCount);
+        document.getElementsByClassName('totalContributions')[0].innerHTML = `Total contributions from year: ${data['totalContributions']}`;
         // Generate grid items
         data['contributions'].forEach((item) => {
             const gridItem = document.createElement('div');
