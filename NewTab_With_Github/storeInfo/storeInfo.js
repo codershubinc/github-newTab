@@ -46,7 +46,6 @@ getGithubUserName.addEventListener(
                 })
                 .finally(() => {
                     console.log('github user stored data => ' + STORE.getInfo('githubUserData'));
-
                     console.log('finally');
                 })
 
