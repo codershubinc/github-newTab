@@ -1,0 +1,37 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+#userAvatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: solid 2px white;
+  text-align: center;
+}
+
+#userAvatar:hover {
+  border: solid 2px red;
+}
+
+#userCardInf {
+  background-color: #020617;
+  padding: 20px;
+  border-radius: 10px;
+  /* margin-top: 20px; */
+  border: solid 2px #1e293b;
+  width: max-content;
+  justify-content: center;
+  align-content: center;
+}
+
+#userCard {
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  /* gap: 20px; */
+}
