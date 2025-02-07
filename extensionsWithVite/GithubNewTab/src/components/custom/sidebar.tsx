@@ -72,25 +72,29 @@ function Sidebar() {
                     </div>
                 </div>
             ) : (
-                <div className="flex flex-col items-center text-center border border-solid border-slate-800 bg-slate-600 rounded-4xl ">
-                    <h1 className="text-3xl font-bold text-slate-300">{user?.login}</h1>
-                    <p className="text-xl font-semibold">
-                        <span className="text-white font-serif">Welcome</span> {user?.name}
-                    </p>
-                    <img
-                        className="border border-white rounded-full w-32 h-32 mt-3"
-                        src={user?.avatar_url}
-                        alt=""
-                    />
-                    <hr className="  mx-auto bg-slate-700 my-4" />
-                    <p className="text-lg">
-                        Github Joined: <span className="font-bold">{(user?.created_at)?.split('T')[0]}</span>
-                        (<span className="text-green-400">{getYearsFromDate(user?.created_at)}</span> yrs ago )
-                    </p>
-                    <p className="text-lg">
-                        Total Public Repos: <span className="font-bold">{user?.public_repos}</span>
-                    </p>
-                </div>
+                <>
+                    <div className="flex flex-col items-center text-center border border-solid border-slate-800 bg-[#141321] rounded-4xl hover:rounded-[40px] shadow-sm hover:shadow-lg shadow-gray-500 transition-all duration-700 hover:transform-3d ">
+                        <h1 className="text-3xl font-bold text-slate-300">{user?.login}</h1>
+                        <p className="text-xl font-semibold">
+                            <span className="text-white font-serif">Welcome</span> {user?.name}
+                        </p>
+                        <img
+                            className="border border-white rounded-full w-32 h-32 mt-3"
+                            src={user?.avatar_url}
+                            alt=""
+                        />
+                        <hr className="  mx-auto bg-slate-700 my-4" />
+                        <p className="text-lg">
+                            Github Joined: <span className="font-bold">{(user?.created_at)?.split('T')[0]}</span>
+                            (<span className="text-green-400">{getYearsFromDate(user?.created_at)}</span> yrs ago )
+                        </p>
+                        <p className="text-lg">
+                            Total Public Repos: <span className="font-bold">{user?.public_repos}</span>
+                        </p>
+                    </div>
+                    <img className='mt-1 w-full' src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="" />
+
+                </>
             )}
         </div>
     )
