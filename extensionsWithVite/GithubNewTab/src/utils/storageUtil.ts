@@ -19,4 +19,12 @@ export class StorageUtil {
             return null;
         }
     }
+
+    removeInfo(key: any) {
+        if (typeof (Storage) !== "undefined") {
+            localStorage.removeItem(key);
+        } else {
+            console.error("Local storage is not supported by this browser.");
+        }
+    }
 }
