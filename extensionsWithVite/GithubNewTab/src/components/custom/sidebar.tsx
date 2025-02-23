@@ -1,4 +1,3 @@
-import React from 'react'
 import { useSidebarLogic } from './sidebarLogic'
 import getYearsFromDate from '@src/utils/yrs'
 import { RotateCcw, Trash2 } from 'lucide-react'
@@ -7,7 +6,7 @@ function Sidebar() {
     const { user, error, loadUser, storeUsername, refreshUser, removeUser } = useSidebarLogic()
 
     return (
-        <div className="w-[30vw] h-screen border border-solid border-slate-800 p-5 bg-slate-900 text-white">
+        <div className=" w-full h-[40vh]  md:w-[30vw] min-w-[500px] md:h-screen border border-solid border-slate-800 p-5 bg-slate-900 text-white">
             {error ? (
                 <div className="flex flex-col gap-4">
                     <p className="text-red-500 text-xl font-semibold">{error}</p>
@@ -17,7 +16,7 @@ function Sidebar() {
                     >
                         Fetch User
                     </button>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-2 justify-between w-full">
                         <p className="text-lg font-medium">Store Username</p>
                         <input
                             type="text"
@@ -54,7 +53,7 @@ function Sidebar() {
                             src={user?.avatar_url}
                             alt="User Avatar"
                         />
-                        <hr className="mx-auto bg-slate-700 my-4" />
+                        <hr className="mx-auto bg-slate-700 my-4 w-3/4" />
                         <p className="text-lg">
                             Github Joined: <span className="font-bold">{(user?.created_at)?.split('T')[0]}</span>
                             (<span className="text-green-400">{getYearsFromDate(user?.created_at)}</span> yrs ago)
@@ -63,7 +62,7 @@ function Sidebar() {
                             Total Public Repos: <span className="font-bold">{user?.public_repos}</span>
                         </p>
                     </div>
-                    <img className='mt-1 w-full' src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Inspirational Quote" />
+                    <img className='mt-4 w-full rounded-lg shadow-md' src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Inspirational Quote" />
                 </>
             )}
         </div>
