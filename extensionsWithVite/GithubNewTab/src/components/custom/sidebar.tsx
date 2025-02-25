@@ -1,9 +1,13 @@
+import { StorageUtil } from '@src/utils/storageUtil';
 import { useSidebarLogic } from './sidebarLogic'
 import getYearsFromDate from '@src/utils/yrs'
 import { RotateCcw, Trash2 } from 'lucide-react'
 
+
+
 function Sidebar() {
     const { user, error, loadUser, storeUsername, refreshUser, removeUser } = useSidebarLogic()
+    const STORE = new StorageUtil();
 
     return (
         <div className=" w-full h-[40vh]  md:w-[30vw] min-w-[500px] md:h-screen border border-solid border-slate-800 p-5 bg-slate-900 text-white">
@@ -63,6 +67,11 @@ function Sidebar() {
                         </p>
                     </div>
                     <img className='mt-4 w-full rounded-lg shadow-md' src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Inspirational Quote" />
+                    <hr className='w-[90%]' />
+                    <img
+                        src={`https://github-readme-streak-stats.herokuapp.com/?user=${STORE?.getInfo('githubUserName')}&theme=radical`} alt=""
+                        className=''
+                    />
                 </>
             )}
         </div>
