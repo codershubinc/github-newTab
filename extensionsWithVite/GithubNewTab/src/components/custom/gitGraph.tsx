@@ -16,7 +16,7 @@ const GitGraphComp = () => {
         <div className="flex flex-col items-center p-4 bg-black text-white font-mono">
             <div className="text-xl font-bold mb-2">{todaysContribution}</div>
             <div className="text-lg mb-2 italic text-red-400 flex items-center">
-                <span className="mr-2">😢</span> {todaysContributionMsg}
+                {todaysContributionMsg}
             </div>
             <div className="text-lg mb-4">{totalContributions}</div>
             <div ref={gridContainerRef} className="grid grid-cols-[repeat(53,1fr)] grid-rows-7 gap-1 mt-4">
