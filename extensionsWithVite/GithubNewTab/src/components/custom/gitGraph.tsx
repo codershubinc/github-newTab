@@ -19,7 +19,7 @@ const GitGraphComp = () => {
                 {todaysContributionMsg}
             </div>
             <div className="text-lg mb-4">{totalContributions}</div>
-            <div ref={gridContainerRef} className="grid grid-cols-[repeat(53,1fr)] grid-rows-7 gap-1 mt-4">
+            <div ref={gridContainerRef} className="grid grid-rows-[repeat(7,15px)] grid-flow-col    gap-1 mt-4  ">
                 {contributionData.map((item: any, index) => (
                     //   z-index: 20;
                     //   width: 500px;
