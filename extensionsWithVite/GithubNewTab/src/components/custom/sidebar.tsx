@@ -69,7 +69,7 @@ function Sidebar() {
                     <img className='mt-4 w-full rounded-lg shadow-md' src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Inspirational Quote" />
                     <hr className='w-[90%]' />
                     <img
-                        src={`https://github-readme-streak-stats.herokuapp.com/?user=${STORE?.getInfo('githubUserName')}&theme=radical`} alt=""
+                        src={`https://github-readme-streak-stats.herokuapp.com/?user=${STORE?.getInfo('githubUserName')}&theme=radical&nocache=12345`} alt=""
                         className=''
                     />
                 </>
