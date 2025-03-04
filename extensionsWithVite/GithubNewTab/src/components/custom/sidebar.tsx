@@ -68,10 +68,15 @@ function Sidebar() {
                     </div>
                     <img className='mt-4 w-full rounded-lg shadow-md' src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Inspirational Quote" />
                     <hr className='w-[90%]' />
-                    <img
-                        src={`https://github-readme-streak-stats.herokuapp.com/?user=${STORE?.getInfo('githubUserName')}&theme=radical&nocache=${new Date().getTime()}`} alt=""
-                        className=''
-                    />
+                    <div
+                        className='flex flex-col items-center justify-center gap-4'
+                    >
+                        <img
+                            src={`https://github-readme-streak-stats.herokuapp.com/?user=${STORE?.getInfo('githubUserName')}&theme=radical&nocache=${new Date().getTime()}`} alt=""
+                            className=''
+                        />
+                        <img src={`https://github-readme-stats.vercel.app/api?username=${STORE?.getInfo('githubUserName')}&show_icons=true&rank_icon=&theme=radical`} alt="" />
+                    </div>
                 </>
             )}
         </div>
