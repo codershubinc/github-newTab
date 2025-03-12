@@ -2,8 +2,9 @@ import { StorageUtil } from '@src/utils/storageUtil';
 import { useSidebarLogic } from './sidebarLogic';
 import getYearsFromDate from '@src/utils/yrs';
 import { RotateCcw, Trash2, Menu } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import refetchUserDaily from '@src/utils/refetchUserDaily';
 
 function Sidebar() {
     const { user, error, loadUser, storeUsername, refreshUser, removeUser } = useSidebarLogic();
@@ -12,7 +13,10 @@ function Sidebar() {
     const [loading, setLoading] = useState(true);
 
     // Simulate a loading state
-    setTimeout(() => setLoading(false), 1500);
+    setTimeout(() => setLoading(false), 500);
+    ; (async () => {
+        await refetchUserDaily()
+    })()
 
     return (
         <motion.div

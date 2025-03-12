@@ -12,7 +12,7 @@ export default function Newtab() {
 
   useEffect(() => {
     if (githubUser) {
-      setTimeout(() => setLoading(false), 1000); // Simulate a loading time
+      setTimeout(() => setLoading(false), 500); // Simulate a loading time
     }
   }, [githubUser]);
 

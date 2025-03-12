@@ -56,6 +56,7 @@ const GitGraphComp = () => {
                                 whileHover={{ scale: 1.2 }}
                             >
                                 <div className="absolute left-1/2 bottom-full mb-1 w-32 -translate-x-1/2 opacity-0 bg-gray-800 text-white text-xs text-center rounded p-1 transition-opacity duration-200 pointer-events-none group-hover:opacity-100 z-50 overflow-visible">
+                                    {() => { console.log('item', item) }}
                                     {item?.contributionCount} contributions on {item?.date}
                                 </div>
                             </motion.div>
