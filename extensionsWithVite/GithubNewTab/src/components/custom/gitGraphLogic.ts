@@ -37,7 +37,7 @@ const gitContribution = async (
 
 
         // Fetch contributions data
-        const result = await fetch('https://github-contributions-api.deno.dev/codershubinc.json?flat=true&from=2024-03-01&to=' + todaysDate, { cache: 'no-cache' });
+        const result = await fetch('https://github-contributions-api.deno.dev/codershubinc.json?flat=true&to=' + todaysDate, { cache: 'no-cache' });
         const data = await result.json();
         console.log('data', data);
         setContributionData(data['contributions']);
