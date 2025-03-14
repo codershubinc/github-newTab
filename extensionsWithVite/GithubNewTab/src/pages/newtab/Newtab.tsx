@@ -56,7 +56,7 @@ export default function Newtab() {
                   initial={{ opacity: 0, y: -30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
-                  src={`https://github-readme-streak-stats.herokuapp.com/?user=${githubUser}&theme=radical&nocache=${new Date().getTime()}`}
+                  src={`https://github-readme-streak-stats-chi-three.vercel.app/?user=${githubUser}&theme=radical&nocache=${new Date().getTime()}`}
                   alt="GitHub Streak"
                   className="w-[500px] h-[270px] rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                 />
