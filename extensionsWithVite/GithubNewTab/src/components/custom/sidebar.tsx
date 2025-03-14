@@ -23,9 +23,9 @@ function Sidebar() {
             initial={{ x: -200 }}
             animate={{ x: 0 }}
             transition={{ duration: 0.5 }}
-            className={`fixed md:relative h-screen transition-all duration-300
+            className={`fixed md:relative h-screen transition-all duration-300 rounded-r-full
             ${isMinimized ? 'w-16' : 'w-full md:w-[30vw] min-w-[300px]'}
-            bg-gray-900 border-r border-gray-800 text-white p-5 flex flex-col`}
+            bg-gray-900 border-r border-gray-800 text-white p-5 flex flex-col rounded-md `}
         >
             {/* Minimize Button */}
             <button
@@ -72,7 +72,7 @@ function Sidebar() {
                                 initial={{ opacity: 0, y: -20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5 }}
-                                className="flex flex-col items-center text-center border border-solid border-gray-800 bg-gray-950 rounded-2xl shadow-md p-4 hover:shadow-lg transition-all duration-500"
+                                className="flex flex-col items-center text-center border border-solid border-gray-800 bg-gray-950 rounded-2xl shadow-md p-4 hover:shadow-lg transition-all duration-500  "
                             >
                                 {/* Refresh & Remove Buttons */}
                                 <div className="flex gap-4 mb-2">
