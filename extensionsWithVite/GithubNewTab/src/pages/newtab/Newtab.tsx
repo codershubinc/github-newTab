@@ -45,7 +45,7 @@ export default function Newtab() {
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
-                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUser}&exclude_repo=DJango&langs_count=10&layout=donut&theme=radical`}
+                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUser}&exclude_repo=DJango&langs_count=10&layout=donut&theme=radical&nocache=${new Date().getTime()}`}
                 alt="Top Languages"
                 className="w-[500px] h-[540px] rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
               />
@@ -65,7 +65,7 @@ export default function Newtab() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
-                  src={`https://github-readme-stats.vercel.app/api?username=${githubUser}&show_icons=true&rank_icon=&theme=radical`}
+                  src={`https://github-readme-stats.vercel.app/api?username=${githubUser}&show_icons=true&rank_icon=&theme=radical&nocache=${new Date().getTime()}`}
                   alt="GitHub Stats"
                   className="w-[500px] h-[270px] rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                 />
