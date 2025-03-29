@@ -4,6 +4,7 @@ import { StorageUtil } from '@src/utils/storageUtil';
 import GitGraphComp from '@src/components/custom/gitGraph';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Footer from '@src/components/custom/footer';
 
 export default function Newtab() {
   const STORE = new StorageUtil();
@@ -46,7 +47,7 @@ export default function Newtab() {
                 transition={{ duration: 0.7 }}
                 src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUser}&exclude_repo=DJango&langs_count=10&layout=donut&theme=radical&nocache=${new Date().getTime()}`}
                 alt="Top Languages"
-                className="w-[500px] h-[540px] rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+                className="w-[500px] h-[540px] rounded-lg shadow-md hover:scale-95 transition-transform duration-300"
               />
 
               {/* Streak & Stats (Side Images) */}
@@ -57,7 +58,7 @@ export default function Newtab() {
                   transition={{ duration: 0.6 }}
                   src={`https://github-readme-streak-stats-chi-three.vercel.app/?user=${githubUser}&theme=radical&nocache=${new Date().getTime()}`}
                   alt="GitHub Streak"
-                  className="w-[500px] h-[270px] rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+                  className="w-[500px] h-[270px] rounded-lg shadow-md hover:scale-95 transition-transform duration-300"
                 />
 
                 <motion.img
@@ -66,24 +67,15 @@ export default function Newtab() {
                   transition={{ duration: 0.6 }}
                   src={`https://github-readme-stats.vercel.app/api?username=${githubUser}&show_icons=true&rank_icon=&theme=radical&nocache=${new Date().getTime()}`}
                   alt="GitHub Stats"
-                  className="w-[500px] h-[270px] rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+                  className="w-[500px] h-[270px] rounded-lg shadow-md hover:scale-95 transition-transform duration-300"
                 />
               </div>
             </div>
           </motion.div>
         )}
       </div>
-      <div
-        className='fixed bottom-0 left-0 w-full p-4 text-center text-gray-500 bg-gray-800 -z-30'
-      >
-        made by Swapnil Ingle
-        <a
-          href="http://github.com/codershubinc"
-          target="_blank"
-          rel="noopener noreferrer"
-          className='text-blue-800'
-        >@codershubinc</a>
-      </div>
+      {/* footer */}
+      <Footer />
     </div>
   );
 }
