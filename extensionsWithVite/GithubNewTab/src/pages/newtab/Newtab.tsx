@@ -22,8 +22,7 @@ export default function Newtab() {
 
       <div className="gitContainer"></div>
       <div
-        className={`flex w-full flex-col items-center justify-center ${!githubUser ? 'hidden' : ''
-          }`}
+        className={`flex w-full flex-col items-center justify-center ${!githubUser ? 'hidden' : ''}`}
       >
         {loading ? (
           <div className="flex flex-col items-center justify-center h-screen">
@@ -73,6 +72,17 @@ export default function Newtab() {
             </div>
           </motion.div>
         )}
+      </div>
+      <div
+        className='fixed bottom-0 left-0 w-full p-4 text-center text-gray-500 bg-gray-800 -z-30'
+      >
+        made by Swapnil Ingle
+        <a
+          href="http://github.com/codershubinc"
+          target="_blank"
+          rel="noopener noreferrer"
+          className='text-blue-800'
+        >@codershubinc</a>
       </div>
     </div>
   );
