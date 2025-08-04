@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "name in manifest.json",
+  "name": "Github States",
   "description": "github states extension",
   "chrome_url_overrides": {
     "newtab": "src/pages/newtab/index.html"

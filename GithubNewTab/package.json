@@ -14,7 +14,8 @@
     "dev": "nodemon --config nodemon.chrome.json",
     "dev:chrome": "nodemon --config nodemon.chrome.json",
     "dev:firefox": "nodemon --config nodemon.firefox.json",
-    "dev:watch": "nodemon --config nodemon.chrome.json --watch src --watch public"
+    "dev:watch": "nodemon --config nodemon.chrome.json --watch src --watch public",
+    "dev:run": "vite --config vite.config.chrome.ts --port 5173"
   },
   "type": "module",
   "dependencies": {
