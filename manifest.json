@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Github States",
+  "description": "github states extension",
+  "chrome_url_overrides": {
+    "newtab": "src/pages/newtab/index.html"
+  },
+  "icons": {
+    "128": "icon-128.png"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "contentStyle.css",
+        "icon-128.png",
+        "icon-32.png"
+      ],
+      "matches": []
+    }
+  ]
+}
