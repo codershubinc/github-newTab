@@ -16,7 +16,7 @@ const GitGraphComp = () => {
     }, []);
 
     return (
-        <div className="relative flex flex-col items-center p-6 bg-gray-900 bg-opacity-80 backdrop-blur-md text-gray-200 font-mono transition-all duration-300 shadow-lg rounded-lg overflow-visible">
+        <div className=" flex flex-col items-center p-6 bg-gray-900 bg-opacity-80 backdrop-blur-md text-gray-200 font-mono transition-all duration-300 shadow-lg rounded-lg overflow-visible">
             {loading ? (
                 <div className="flex flex-col items-center justify-center h-40">
                     <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-blue-400"></div>
@@ -47,16 +47,15 @@ const GitGraphComp = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
-                        className="relative grid grid-rows-[repeat(7,15px)] grid-flow-col gap-1 mt-4 z-10 overflow-visible">
+                        className=" grid grid-rows-[repeat(7,15px)] grid-flow-col gap-1 mt-4 overflow-visible">
                         {contributionData?.map((item: any, index) => (
                             <motion.div
                                 key={index}
-                                className="w-4 h-4 rounded-sm relative transition-all duration-300 transform group hover:scale-110 overflow-visible z-10"
+                                className="w-4 h-4 rounded-sm  transition-all duration-300 transform group hover:scale-110 overflow-visible"
                                 style={{ backgroundColor: item?.color }}
                                 whileHover={{ scale: 1.2 }}
                             >
-                                <div className="absolute left-1/2 bottom-full mb-1 w-32 -translate-x-1/2 opacity-0 bg-gray-800 text-white text-xs text-center rounded p-1 transition-opacity duration-200 pointer-events-none group-hover:opacity-100 z-50 overflow-visible">
-                                    {() => { console.log('item', item) }}
+                                <div className="fixed left-1/2 bottom-full mb-1 w-32 -translate-x-1/2 opacity-0 bg-gray-800 text-white text-xs text-center rounded p-1 transition-opacity duration-200 pointer-events-none group-hover:opacity-200 z-[999] overflow-visible">
                                     {item?.contributionCount} contributions on {item?.date}
                                 </div>
                             </motion.div>
