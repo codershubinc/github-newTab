@@ -29,6 +29,7 @@ function Sidebar() {
         >
             {/* Minimize Button */}
             <button
+                title='Toggle Sidebar'
                 onClick={() => setIsMinimized(!isMinimized)}
                 className="absolute top-3 right-3 p-2 bg-gray-800 hover:bg-gray-700 rounded-full transition"
             >
@@ -108,14 +109,14 @@ function Sidebar() {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5 }}
-                                className="mt-4 w-full rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
-                                src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical"
+                                className="mt-4 mb-4 w-full rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+                                src={`https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical&nocache=${new Date().getTime()}`}
                                 alt="Inspirational Quote"
                             />
 
-                            <hr className="w-[90%]" />
+                            <hr className="w-[90%] mt-4" />
 
-                            <div className="flex flex-col items-center justify-center gap-4">
+                            <div className="flex flex-col items-center justify-center gap-4 mt-4">
                                 <motion.img
                                     initial={{ opacity: 0, y: -20 }}
                                     animate={{ opacity: 1, y: 0 }}

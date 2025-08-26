@@ -1,15 +1,180 @@
 <div align="center">
-<img src="public/icon-128.png" alt="logo"/>
-<h1> Minimalist Chrome/Firefox Extension Boilerplate with<br/>React + Vite + TypeScript + TailwindCSS</h1>
+<img src="public/icon-128.png" alt="GitHub NewTab Extension Logo" width="128" height="128"/>
+<h1>🚀 GitHub NewTab Extension</h1>
 
-<h5>
-This template repository is a side product of my Chrome Extension <a target="_blank" rel="noopener noreferrer" href="https://chrome.google.com/webstore/detail/supatabs/icbcnjlaegndjabnjbaeihnnmidbfigk">Supatabs</a>.
-<br />
-If you tend to have tons of tabs open, or are a OneTab user, make sure to check it out <a target="_blank" rel="noopener noreferrer" href="https://chrome.google.com/webstore/detail/supatabs/icbcnjlaegndjabnjbaeihnnmidbfigk">here</a>!
-</h5>
+<h3>Transform your new tab into a beautiful GitHub dashboard with contributions graph, user stats, and cosmic background.</h3>
 
-<h5>Supatabs is an example and showcase of what you can develop with this template. (anything you want, really 🚀)</h5>
+<p>
+<img alt="Version" src="https://img.shields.io/badge/version-2.0.0-blue.svg?cacheSeconds=2592000" />
+<img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+<img alt="Chrome Extension" src="https://img.shields.io/badge/Chrome-Extension-green.svg" />
+<img alt="Firefox Extension" src="https://img.shields.io/badge/Firefox-Extension-orange.svg" />
+</p>
 
+</div>
+
+## ✨ Features
+
+- 🎨 **Beautiful Cosmic Background** - Stunning space-themed design with animated elements
+- 📊 **GitHub Contributions Graph** - Real-time display of your GitHub activity with interactive tooltips
+- 📈 **Daily Contributions** - Track your coding activity with motivational messages
+- 🎯 **User Statistics** - Total contributions and streak tracking
+- 🌙 **Dark Theme** - Eye-friendly dark design perfect for developers
+- ⚡ **Fast & Lightweight** - Built with modern web technologies for optimal performance
+- 🔄 **Auto-refresh** - Keeps your data up-to-date automatically
+- 🎭 **Smooth Animations** - Powered by Framer Motion for delightful interactions
+
+## 🛠️ Tech Stack
+
+- [React 19](https://reactjs.org/) - Modern UI framework
+- [TypeScript](https://www.typescriptlang.org/) - Type-safe development
+- [Tailwind CSS 4](https://tailwindcss.com/) - Utility-first CSS framework
+- [Framer Motion](https://www.framer.com/motion/) - Production-ready motion library
+- [Vite](https://vitejs.dev/) - Next generation frontend tooling
+- [Chrome Extension Manifest V3](https://developer.chrome.com/docs/extensions/mv3/intro/) - Latest extension standard
+
+## 📦 Installation
+
+### For Users
+
+#### Chrome Web Store (Coming Soon)
+
+The extension will be available on the Chrome Web Store soon!
+
+#### Manual Installation
+
+1. Download the latest release from the [Releases](https://github.com/codershubinc/github-newTab/releases) page
+2. Extract the zip file
+3. Open Chrome and go to `chrome://extensions/`
+4. Enable "Developer mode" in the top right
+5. Click "Load unpacked" and select the extracted folder
+
+#### Firefox Add-ons (Coming Soon)
+
+Firefox support is coming soon!
+
+### For Developers
+
+#### Prerequisites
+
+- Node.js >= 18
+- npm or bun package manager
+
+#### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/codershubinc/github-newTab.git
+cd github-newTab
+
+# Install dependencies
+bun install
+# or
+npm install
+
+# Start development server for web preview
+bun run dev:web
+# or
+npm run dev:web
+
+# Build extension for Chrome
+bun run dev
+# or
+npm run dev
+
+# Build production version
+bun run build
+# or
+npm run build
+```
+
+#### Load Extension in Chrome
+
+1. Open Chrome and go to `chrome://extensions/`
+2. Enable "Developer mode"
+3. Click "Load unpacked"
+4. Select the `dist_chrome` folder
+
+## 🎯 Usage
+
+1. **First Time Setup**: The extension will automatically start tracking your GitHub contributions
+2. **View Stats**: Your daily contributions and total count are displayed prominently
+3. **Explore Graph**: Hover over any day in the contributions graph to see detailed information
+4. **Enjoy**: Your new tab page now shows your coding journey with a beautiful cosmic theme!
+
+## 🔧 Configuration
+
+The extension works out of the box with public GitHub data. The username is currently set to `codershubinc` but can be configured in the source code.
+
+### Customizing the GitHub Username
+
+To track a different GitHub user's contributions:
+
+1. Open `src/components/custom/gitGraphLogic.ts`
+2. Change the username in the API URL:
+
+```typescript
+const result = await fetch(
+  "https://github-contributions-api.deno.dev/YOUR_USERNAME.json?flat=true&to=" +
+    todaysDate,
+  { cache: "no-cache" }
+);
+```
+
+## 🚀 Development
+
+### Project Structure
+
+```
+├── src/
+│   ├── components/custom/     # Custom React components
+│   │   ├── gitGraph.tsx      # GitHub contributions graph
+│   │   ├── gitGraphLogic.ts  # Data fetching logic
+│   │   ├── sidebar.tsx       # Sidebar component
+│   │   └── footer.tsx        # Footer component
+│   ├── pages/newtab/         # New tab page
+│   └── assets/               # Static assets
+├── public/                   # Public assets
+├── manifest.json            # Extension manifest
+└── vite.config.*.ts        # Vite configurations
+```
+
+### Available Scripts
+
+- `bun run dev:web` - Start web development server
+- `bun run dev` - Build and watch extension files
+- `bun run build` - Create production build
+- `bun run build:chrome` - Build for Chrome
+- `bun run build:firefox` - Build for Firefox
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- GitHub Contributions API by [Deno](https://github-contributions-api.deno.dev/)
+- Icons and design inspiration from the GitHub ecosystem
+- Built with the amazing [vite-web-extension](https://github.com/JohnBra/vite-web-extension) template
+
+## 📞 Support
+
+If you have any questions or issues, please [open an issue](https://github.com/codershubinc/github-newTab/issues) on GitHub.
+
+---
+
+<div align="center">
+Made with ❤️ by <a href="https://github.com/codershubinc">codershubinc</a>
 </div>
 
 ## Table of Contents

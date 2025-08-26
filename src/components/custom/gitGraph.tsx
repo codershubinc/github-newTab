@@ -47,7 +47,8 @@ const GitGraphComp = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
-                        className=" grid grid-rows-[repeat(7,15px)] grid-flow-col gap-1 mt-4 overflow-visible">
+                        className=" grid grid-rows-[repeat(7,15px)] grid-flow-col gap-1 mt-4 overflow-invisible"
+                    >
                         {contributionData?.map((item: any, index) => (
                             <motion.div
                                 key={index}
@@ -61,6 +62,19 @@ const GitGraphComp = () => {
                             </motion.div>
                         ))}
                     </motion.div>
+                    <div
+                        className='flex items-center justify-center gap-2 mt-4 text-xs text-white select-none'
+                    >
+                        <span>Less</span>
+                        <div className="flex space-x-1">
+                            <div className="w-3 h-3 rounded-sm bg-[#ebedf0]"></div>
+                            <div className="w-3 h-3 rounded-sm bg-[#9be9a8]"></div>
+                            <div className="w-3 h-3 rounded-sm bg-[#40c463]"></div>
+                            <div className="w-3 h-3 rounded-sm bg-[#30a14e]"></div>
+                            <div className="w-3 h-3 rounded-sm bg-[#216e39]"></div>
+                        </div>
+                        <span>More</span>
+                    </div>
                 </>
             )}
         </div>
