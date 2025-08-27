@@ -2,10 +2,23 @@
   "manifest_version": 3,
   "name": "Github States",
   "description": "github states extension",
+  "version": "1.5.1",
+  "action": {
+    "default_icon": {
+      "16": "icon-32.png",
+      "32": "icon-32.png",
+      "48": "icon-128.png",
+      "128": "icon-128.png"
+    },
+    "default_title": "Github States"
+  },
   "chrome_url_overrides": {
     "newtab": "src/pages/newtab/index.html"
   },
   "icons": {
+    "16": "icon-32.png",
+    "32": "icon-32.png",
+    "48": "icon-128.png",
     "128": "icon-128.png"
   },
   "permissions": [

@@ -7,8 +7,7 @@
     "utils",
     "vite.config.base.ts",
     "vite.config.chrome.ts",
-    "manifest.json",
-    "manifest.dev.json"
+    "manifest.json"
   ],
   "ext": "tsx,css,html,ts,json",
   "ignore": [
