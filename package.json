@@ -1,26 +1,11 @@
 {
-  "name": "github-newtab",
-  "version": "1.5.0",
-  "description": "A beautiful GitHub-powered new tab extension for Chrome & Firefox featuring GitHub contributions graph, user stats, and stunning cosmic background.",
+  "name": "vite-web-extension",
+  "version": "1.4.0",
+  "description": "A simple chrome & firefox extension template with Vite, React, TypeScript and Tailwind CSS.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/codershubinc/github-newTab.git"
-  },
-  "keywords": [
-    "github",
-    "newtab",
-    "extension",
-    "chrome",
-    "firefox",
-    "contributions",
-    "react",
-    "typescript",
-    "tailwindcss"
-  ],
-  "author": {
-    "name": "Swapnil Ingle",
-    "url": "https://github.com/codershubinc"
+    "url": "https://github.com/JohnBra/vite-web-extension.git"
   },
   "scripts": {
     "build": "vite build --config vite.config.chrome.ts",

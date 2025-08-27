@@ -1,13 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "GitHub NewTab",
-  "description": "Transform your new tab into a beautiful GitHub dashboard with contributions graph, user stats, and cosmic background.",
-  "version": "1.5.0",
+  "name": "Github States",
+  "description": "github states extension",
   "chrome_url_overrides": {
     "newtab": "src/pages/newtab/index.html"
   },
   "icons": {
-    "32": "icon-32.png",
     "128": "icon-128.png"
   },
   "permissions": [
@@ -22,7 +20,5 @@
       ],
       "matches": []
     }
-  ],
-  "author": "codershubinc",
-  "homepage_url": "https://github.com/codershubinc/github-newTab"
+  ]
 }

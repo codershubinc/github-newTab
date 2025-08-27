@@ -63,15 +63,15 @@ const GitGraphComp = () => {
                         ))}
                     </motion.div>
                     <div
-                        className='flex items-center justify-center gap-2 mt-4 text-xs text-white select-none'
+                        className='flex items-center justify-center gap-2 mt-4 text-xs text-gray-400 select-none'
                     >
                         <span>Less</span>
                         <div className="flex space-x-1">
-                            <div className="w-3 h-3 rounded-sm bg-[#ebedf0]"></div>
-                            <div className="w-3 h-3 rounded-sm bg-[#9be9a8]"></div>
-                            <div className="w-3 h-3 rounded-sm bg-[#40c463]"></div>
-                            <div className="w-3 h-3 rounded-sm bg-[#30a14e]"></div>
-                            <div className="w-3 h-3 rounded-sm bg-[#216e39]"></div>
+                            <div className="w-3 h-3 rounded-sm bg-gray-600"></div>
+                            <div className="w-3 h-3 rounded-sm bg-green-900"></div>
+                            <div className="w-3 h-3 rounded-sm bg-green-700"></div>
+                            <div className="w-3 h-3 rounded-sm bg-green-500"></div>
+                            <div className="w-3 h-3 rounded-sm bg-green-300"></div>
                         </div>
                         <span>More</span>
                     </div>

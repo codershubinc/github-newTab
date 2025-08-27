@@ -1,3 +1,5 @@
+import { StorageUtil } from "@src/utils/storageUtil";
+
 const contributingMessage = (cnt: number) => {
     console.log(`Contribution count: ${cnt}`);
 
@@ -34,10 +36,13 @@ const gitContribution = async (
             String(new Date().getDate()).padStart(2, '0');
         console.log('todaysDate', todaysDate);
         console.log('Date of now = ', new Date().getDate() + '-' + Number(new Date().getMonth() + 1) + '-' + new Date().getFullYear());
+        const STORE = new StorageUtil();
+        const githubUserName = STORE.getInfo('githubUserName')
+        console.log('githubUserName from storage', githubUserName);
 
 
         // Fetch contributions data
-        const result = await fetch('https://github-contributions-api.deno.dev/codershubinc.json?flat=true&to=' + todaysDate, { cache: 'no-cache' });
+        const result = await fetch('https://github-contributions-api.deno.dev/' + githubUserName + '.json?flat=true&to=' + todaysDate, { cache: 'no-cache' });
         const data = await result.json();
         console.log('data', data);
         setContributionData(data['contributions']);
