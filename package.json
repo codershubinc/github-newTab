@@ -1,6 +1,6 @@
 {
   "name": "github-newtab",
-  "version": "1.0.1",
+  "version": "1.5.0",
   "description": "A beautiful GitHub-powered new tab extension for Chrome & Firefox featuring GitHub contributions graph, user stats, and stunning cosmic background.",
   "license": "MIT",
   "repository": {

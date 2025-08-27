@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "GitHub NewTab",
   "description": "Transform your new tab into a beautiful GitHub dashboard with contributions graph, user stats, and cosmic background.",
-  "version": "1.0.1",
+  "version": "1.5.0",
   "chrome_url_overrides": {
     "newtab": "src/pages/newtab/index.html"
   },
