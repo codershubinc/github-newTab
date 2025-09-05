@@ -1,5 +1,5 @@
 {
-  "name": "vite-web-extension",
+  "name": "github newTab",
   "version": "1.5.2",
   "description": "A simple chrome & firefox extension template with Vite, React, TypeScript and Tailwind CSS.",
   "license": "MIT",
@@ -16,7 +16,10 @@
     "dev:firefox": "nodemon --config nodemon.firefox.json",
     "dev:watch": "nodemon --config nodemon.chrome.json --watch src --watch public",
     "dev:run": "vite --config vite.config.chrome.ts --port 5173",
-    "dev:web": "vite --config vite.config.web.ts"
+    "dev:web": "vite --config vite.config.web.ts",
+    "firefox:dev": "web-ext run --source-dir=dist_firefox --verbose",
+    "firefox:lint": "web-ext lint --source-dir=dist_firefox",
+    "firefox:build-and-run": "bun run build:firefox && bun run firefox:dev"
   },
   "type": "module",
   "dependencies": {
@@ -24,6 +27,7 @@
     "lucide-react": "^0.475.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "web-ext": "^8.9.0",
     "webextension-polyfill": "^0.12.0"
   },
   "devDependencies": {

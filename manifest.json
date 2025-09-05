@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Github States",
-  "description": "github states extension",
+  "name": "Github NewTab",
+  "description": "A beautiful new tab page that displays your GitHub contribution graph, stats, and coding activity in an elegant cosmic-themed interface.",
   "version": "1.5.1",
   "action": {
     "default_icon": {
