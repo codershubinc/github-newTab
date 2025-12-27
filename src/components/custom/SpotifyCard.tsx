@@ -14,9 +14,9 @@ export default function SpotifyCard() {
 
             // PROXY FIX: Use a CORS proxy to bypass browser restrictions
             // We prepend the proxy URL to the actual target
-            const proxyUrl = `/sp-proxy${new URL(targetUrl).pathname}`;
+            // const proxyUrl = `/sp-proxy${new URL(targetUrl).pathname}`;
 
-            const res = await fetch(proxyUrl);
+            const res = await fetch(targetUrl);
             console.log("got spotify data", data);
 
 

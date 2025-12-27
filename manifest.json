@@ -28,7 +28,8 @@
     "https://api.github.com/*",
     "https://sp-card-t.vercel.app/*",
     "https://github-readme-states-repo-self-inst.vercel.app/*",
-    "https://cdn.jsdelivr.net/*"
+    "https://cdn.jsdelivr.net/*",
+    "https://github-readme-streak-stats-chi-three.vercel.app/*"
   ],
   "web_accessible_resources": [
     {
