@@ -23,5 +23,16 @@ export default mergeConfig(
       ...baseBuildOptions,
       outDir
     },
+    server: {
+      port: 5173,
+      proxy: {
+        // Proxy requests starting with /api-proxy to the Vercel API
+        '/api-proxy': {
+          target: 'https://github-readme-states-repo-self-inst.vercel.app',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api-proxy/, ''),
+        },
+      },
+    },
   })
 )
