@@ -66,6 +66,12 @@ Running a `dev` command will build your extension and watch for changes in the
 source files. Changing the source files will refresh the corresponding
 `dist_<chrome|firefox>` folder.
 
+You can also preview the New Tab page in a normal browser window with live reload
+(useful for UI development):
+
+- Run `npm run dev:web` or `npm run live` to start the Vite dev server (it will open your browser at `http://localhost:5173`).
+- To create a built preview, run `npm run build:web` then `npm run preview:web`.
+
 To create an optimized production build, run `yarn build[:chrome|:firefox]`, or
 `npm run build[:chrome|:firefox]`.
 
