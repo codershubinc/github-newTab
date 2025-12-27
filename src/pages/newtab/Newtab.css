@@ -60,7 +60,6 @@ body {
 
 /* Ensure cards never overflow their containers and images fit nicely */
 .card-surface {
-  overflow: hidden;
   max-width: 100%;
 }
 

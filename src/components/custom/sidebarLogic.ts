@@ -1,9 +1,10 @@
 import { FetchUtil } from '@src/utils/fetch'
 import { StorageUtil } from '@src/utils/storageUtil'
 import { useEffect, useState } from 'react'
+import { User } from '@src/global' // Ensure this imports from your global.d.ts or is available globally
 
 export function useSidebarLogic() {
-    const [user, setUser] = useState<any>()
+    const [user, setUser] = useState<User | null>(null)
     const [error, setError] = useState<string | null>(null)
 
     const STORE = new StorageUtil()
@@ -11,10 +12,9 @@ export function useSidebarLogic() {
 
     useEffect(() => {
         const userStr = STORE.getInfo('githubUserData')
-        const user = JSON.parse(String(userStr))
-
-        if (user && userStr) setUser(user)
-        else setError("Something went wrong. Can't find user")
+        if (userStr) {
+            setUser(JSON.parse(String(userStr)))
+        }
     }, [])
 
     const loadUser = async () => {
@@ -24,8 +24,24 @@ export function useSidebarLogic() {
         setError(`Fetching info of ${un}... Please wait`)
 
         try {
+            // 1. Fetch Main User Info
             const data = await FETCH.fetchGithubUserInfo(un)
+
             if (data?.login) {
+                // 2. Fetch Social Accounts
+                try {
+                    const socialRes = await fetch(`https://api.github.com/users/${un}/social_accounts`);
+                    if (socialRes.ok) {
+                        const socialData = await socialRes.json();
+                        // Merge social data into the user object
+                        data.social_accounts = socialData;
+                    }
+                } catch (socialErr) {
+                    console.warn("Could not fetch social accounts", socialErr);
+                    // Continue even if social fetch fails
+                }
+
+                // 3. Store and Set State
                 STORE.storeInfo('githubUserData', JSON.stringify(data))
                 setUser(data)
                 setError(null)
@@ -48,10 +64,11 @@ export function useSidebarLogic() {
         STORE.removeInfo('githubUserData')
         loadUser()
     }
+
     const removeUser = () => {
         STORE.removeInfo('githubUserData')
         STORE.removeInfo('githubUserName')
-        setError('User removed , please store username again')
+        setError('User removed, please store username again')
         setUser(null)
     }
 

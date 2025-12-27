@@ -55,7 +55,7 @@ export default function StreakCard({ username }: { username: string }) {
         <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="card-surface p-6 rounded-2xl flex flex-col justify-between w-full h-full min-h-[200px]"
+            className="card-surface p-6 rounded-2xl flex flex-col justify-between min-w-xl w-full h-full min-h-[200px]"
         >
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
@@ -94,7 +94,7 @@ export default function StreakCard({ username }: { username: string }) {
                 <div className="flex flex-col gap-1">
                     <div className="flex items-center gap-1.5 text-xs text-zinc-400 uppercase tracking-wider font-semibold">
                         <Layers size={12} className="text-blue-500" />
-                        <span>Total</span>
+                        <span>Total Contributions</span>
                     </div>
                     <div className="text-xl font-bold text-zinc-200">
                         {data.totalContributions.toLocaleString()}
