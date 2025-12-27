@@ -25,6 +25,11 @@ export default defineConfig({
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api-proxy/, ''),
             },
+            "/sp-proxy": {
+                target: 'https://sp-card-t.vercel.app',
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/sp-proxy/, ''),
+            }
         },
     },
 });

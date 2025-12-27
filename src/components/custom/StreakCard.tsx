@@ -55,7 +55,7 @@ export default function StreakCard({ username }: { username: string }) {
         <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="card-surface p-6 rounded-2xl flex flex-col justify-between min-w-xl w-full h-full min-h-[200px]"
+            className="card-surface p-6 rounded-2xl flex flex-col justify-between  w-full h-full min-h-[200px]"
         >
             {/* Header */}
             <div className="flex items-center justify-between mb-6">

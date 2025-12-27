@@ -24,6 +24,12 @@
   "permissions": [
     "activeTab"
   ],
+  "host_permissions": [
+    "https://api.github.com/*",
+    "https://sp-card-t.vercel.app/*",
+    "https://github-readme-states-repo-self-inst.vercel.app/*",
+    "https://cdn.jsdelivr.net/*"
+  ],
   "web_accessible_resources": [
     {
       "resources": [
