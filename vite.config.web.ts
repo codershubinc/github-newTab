@@ -29,6 +29,16 @@ export default defineConfig({
                 target: 'https://sp-card-t.vercel.app',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/sp-proxy/, ''),
+            },
+            '/leetcode-proxy': {
+                target: 'https://leetcode.com',
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/leetcode-proxy/, ''),
+                headers: {
+                    // LeetCode checks these headers
+                    Referer: 'https://leetcode.com/',
+                    Origin: 'https://leetcode.com'
+                }
             }
         },
     },

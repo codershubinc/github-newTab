@@ -42,7 +42,7 @@ export default function SpotifyCard() {
     if (loading) return <div className="h-[100px] animate-pulse bg-zinc-800/20 rounded-3xl w-full"></div>;
 
     // --- Not Playing State ---
-    if (!data || !data.is_playing || !data?.raw?.item) {
+    if (!data || !data?.raw?.item) {
         return (
             <div className="w-full bg-zinc-900/30 backdrop-blur-md border border-white/5 rounded-3xl p-5 flex items-center gap-4 text-zinc-500">
                 <div className="w-12 h-12 rounded-full bg-zinc-800/50 flex items-center justify-center">

@@ -12,9 +12,21 @@ export function useSidebarLogic() {
 
     useEffect(() => {
         const userStr = STORE.getInfo('githubUserData')
-        if (userStr) {
-            setUser(JSON.parse(String(userStr)))
+        const timeStored = STORE.getInfo('githubUserDataTimestamp')
+        const now = Date.now()
+        const CACHE_DURATION = 60 * 60 * 1000; // 1hours
+        // check if cached duration is over
+
+        if (timeStored && (now - parseInt(String(timeStored))) < CACHE_DURATION) {
+            console.log("Cache duration is not over , serving from the cache");
+
+            if (userStr) {
+                setUser(JSON.parse(String(userStr)))
+                return
+            }
         }
+
+        loadUser()
     }, [])
 
     const loadUser = async () => {
@@ -28,7 +40,7 @@ export function useSidebarLogic() {
             const data = await FETCH.fetchGithubUserInfo(un)
 
             if (data?.login) {
-                // 2. Fetch Social Accounts
+
                 try {
                     const socialRes = await fetch(`https://api.github.com/users/${un}/social_accounts`);
                     if (socialRes.ok) {

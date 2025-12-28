@@ -122,8 +122,8 @@ export default function Newtab() {
                   </div>
 
                   {/* Stats Stack */}
-                  <div className="w-full max-w-[400px] xl:w-[400px] flex flex-col gap-6">
-                    <div className="h-60">
+                  <div className="w-full max-w-[400px] xl:w-[400px] h-fit flex flex-col gap-6">
+                    <div className="h-fit">
                       <StreakCard username={githubUser} />
                     </div>
                     <div className="min-h-[300px]">
