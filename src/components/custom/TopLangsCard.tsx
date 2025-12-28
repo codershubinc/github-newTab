@@ -159,7 +159,7 @@ export default function TopLangsCard({ username }: { username: string }) {
 
                                             {/* 1. PERCENTAGE (Top) */}
                                             <span className="text-sm font-bold text-white mb-0 drop-shadow-md">
-                                                {percent.toFixed(0)}%
+                                                {percent.toFixed(1)}%
                                             </span>
                                             {/* Shortname moved above bar for visibility */}
                                             <span className="text-[13px] font-bold text-zinc-400 uppercase tracking-wide mb-1">
@@ -211,7 +211,7 @@ export default function TopLangsCard({ username }: { username: string }) {
                                             <span className="w-2.5 h-2.5 rounded-full shadow-sm" style={{ backgroundColor: lang.color }}></span>
                                             <span className="text-sm text-zinc-300 font-medium">{lang.name}</span>
                                             <span className="text-[13px] text-zinc-100 font-mono font-bold ml-auto">
-                                                {((lang.size / totalSize) * 100).toFixed(0)}%
+                                                {((lang.size / totalSize) * 100).toFixed(1)}%
                                             </span>
                                         </div>
                                     ))}

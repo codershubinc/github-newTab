@@ -138,8 +138,8 @@ export default function ProfileCard() {
                                 </div>
                             </div>
 
-                            <p className="text-xs text-emerald-500 font-mono mt-auto pt-4 opacity-80">
-                                Joined {getYearsFromDate(user.created_at)} Years Ago
+                            <p className="text-md text-gray-400 font-mono mt-auto pt-4 opacity-80 font-serif">
+                                Joined GITHUB <span className='font-bold text-emerald-600'>{getYearsFromDate(user.created_at)}</span> Years Ago
                             </p>
                         </>
                     )}
