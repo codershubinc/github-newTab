@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Code2, PieChart, BarChart3 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { StorageUtil } from '@src/utils/storageUtil';
 
 // --- ENUMS & TYPES ---
 export enum ChartType {
@@ -35,14 +36,18 @@ const getShortName = (name: string) => {
 };
 
 export default function TopLangsCard({ username }: { username: string }) {
+    const STORE = new StorageUtil()
     const [langs, setLangs] = useState<LangStats[]>([]);
     const [loading, setLoading] = useState(true);
-    const [chartType, setChartType] = useState<ChartType>(ChartType.DONUT);
+    const [chartType, setChartType] = useState<ChartType>(STORE.getInfo('topLangsChartType') as ChartType || ChartType.DONUT);
 
     const baseUrl = import.meta.env.DEV ? '/api-proxy' : 'https://github-readme-states-repo-self-inst.vercel.app';
 
     useEffect(() => {
         if (!username) return;
+        const chartTypeStored = STORE.getInfo('topLangsChartType') as ChartType;
+        if (chartTypeStored) setChartType(chartTypeStored);
+
         fetch(`${baseUrl}/api/json-top-langs?username=${username}`)
             .then((res) => res.json())
             .then((data: LangsResponse) => {
@@ -85,14 +90,14 @@ export default function TopLangsCard({ username }: { username: string }) {
                 {/* Toggle Controls */}
                 <div className="flex bg-zinc-900/80 rounded-lg p-1 border border-zinc-800/50">
                     <button
-                        onClick={() => setChartType(ChartType.GRAPH)}
+                        onClick={() => { STORE.storeInfo("topLangsChartType", ChartType.GRAPH); setChartType(ChartType.GRAPH) }}
                         className={`p-1.5 rounded-md transition-all ${chartType === ChartType.GRAPH ? 'bg-zinc-700 text-white shadow-sm' : 'text-zinc-500 hover:text-zinc-300'}`}
                         title="Bar Graph"
                     >
                         <BarChart3 size={14} />
                     </button>
                     <button
-                        onClick={() => setChartType(ChartType.DONUT)}
+                        onClick={() => { STORE.storeInfo("topLangsChartType", ChartType.DONUT); setChartType(ChartType.DONUT) }}
                         className={`p-1.5 rounded-md transition-all ${chartType === ChartType.DONUT ? 'bg-zinc-700 text-white shadow-sm' : 'text-zinc-500 hover:text-zinc-300'}`}
                         title="Donut Chart"
                     >
