@@ -195,7 +195,7 @@ export default function ActivityFeed({ username }: { username: string }) {
                             <div className="text-base text-zinc-300 truncate w-full pr-2 leading-tight">
                                 <span className="text-zinc-400">{getActionText(event.type)}</span>{' '}
                                 <span className="font-bold text-white group-hover/item:text-blue-400 transition-colors block sm:inline">
-                                    {event.repo.name}
+                                    {event.repo.name.split('/')[1]}
                                 </span>
                             </div>
 
