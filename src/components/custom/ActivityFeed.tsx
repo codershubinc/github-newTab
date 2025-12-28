@@ -178,7 +178,7 @@ export default function ActivityFeed({ username }: { username: string }) {
             {/* List */}
             <div className="flex flex-col gap-0 relative pl-3 z-10">
                 {/* Timeline Line */}
-                <div className="absolute left-[19px] top-4 bottom-4 w-[2px] bg-zinc-800/50 rounded-full"></div>
+                <div className="absolute left-[19px] top-4 bottom-4 w-0.5 bg-zinc-800/50 rounded-full"></div>
 
                 {events.map((event) => (
                     <div key={event.id} className="flex gap-5 relative mb-6 last:mb-0 group/item items-start">
