@@ -54,7 +54,7 @@ const gitContribution = async (
         setTodaysContributionMsg(contributingMessage(data['contributions'][data['contributions'].length - 1].contributionCount))
 
 
-        setTotalContributions(`Total contributions from year: ${data['totalContributions']}`)
+        setTotalContributions(`Total contributions from ${data['contributions'][0].date} (${data['contributions'].length}  days) : ${data['totalContributions']}`)
 
 
     } catch (error) {

@@ -179,7 +179,7 @@ export default function StreakCard({ username, leetcodeUsername }: { username: s
                 {/* --- LEFT SIDE: GITHUB --- */}
                 <div className="flex-1 flex flex-col justify-between relative group/gh">
                     {/* Background Icon Decoration */}
-                    <Github className="absolute -right-4 top-10 text-white/5 group-hover/gh:text-white/10 transition-colors" size={100} />
+                    <Github className="absolute -right-4 top-10 text-white/10 group-hover/gh:text-white/10 transition-colors" size={100} />
 
                     {/* Header */}
                     <div className="flex items-center gap-3 mb-2">
@@ -234,7 +234,7 @@ export default function StreakCard({ username, leetcodeUsername }: { username: s
                 {/* --- RIGHT SIDE: LEETCODE --- */}
                 <div className="flex-1 flex flex-col justify-between relative group/lc">
                     {/* Background Icon Decoration */}
-                    <Code className="absolute -right-4 top-10 text-yellow-500/5 group-hover/lc:text-yellow-500/10 transition-colors" size={100} />
+                    <Code className="absolute -right-4 top-10 text-yellow-500/10 group-hover/lc:text-yellow-500/10 transition-colors" size={100} />
 
                     {/* Header */}
                     <div className="flex items-center gap-3 mb-2">

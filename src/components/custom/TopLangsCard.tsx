@@ -106,20 +106,27 @@ export default function TopLangsCard({ username }: { username: string }) {
 
                 {/* 1. LIST SECTION (Always Visible - Top 55%) */}
                 <div className="flex-[4] overflow-y-auto custom-scrollbar p-4 min-h-0 border-b border-zinc-800/30">
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-4">
                         {top10.map((lang, index) => {
                             const percent = ((lang.size / totalSize) * 100).toFixed(1);
                             return (
                                 <div key={lang.name} className="flex items-center justify-between group">
-                                    <div className="flex items-center gap-3 min-w-0">
-                                        <img src={getLangIcon(lang.name)} alt="" className="w-8 h-8 object-contain opacity-70 group-hover:opacity-200 transition-opacity" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                                    <div className="flex items-center gap-4 min-w-0">
+                                        {/* Bigger Icons */}
+                                        <img
+                                            src={getLangIcon(lang.name)}
+                                            alt=""
+                                            className={` w-8 h-8 object-contain opacity-70 group-hover:opacity-100 transition-opacity ${["Rust", "Shell"].includes(lang.name) && "bg-amber-50 rounded-2xl"} `}
+                                            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                                        />
                                         <span className="text-sm text-zinc-300 font-medium truncate group-hover:text-white transition-colors">{lang.name}</span>
                                     </div>
-                                    <div className="flex items-center gap-2 w-[40%]">
-                                        <div className="flex-1 h-1.5 bg-zinc-800/50 rounded-full overflow-hidden">
+                                    <div className="flex items-center gap-3 w-[45%]">
+                                        <div className="flex-1 h-2 bg-zinc-800/50 rounded-full overflow-hidden">
                                             <motion.div initial={{ width: 0 }} animate={{ width: `${percent}%` }} transition={{ delay: index * 0.05 }} className="h-full rounded-full" style={{ backgroundColor: lang.color }} />
                                         </div>
-                                        <span className="text-[15px] text-zinc-100 font-mono w-8 text-right">{percent}%</span>
+                                        {/* Bigger Font */}
+                                        <span className="text-[15px] text-zinc-100 font-mono font-bold w-10 text-right">{percent}%</span>
                                     </div>
                                 </div>
                             );
@@ -143,30 +150,31 @@ export default function TopLangsCard({ username }: { username: string }) {
                                 {top10.slice(0, 7).map((lang) => {
                                     const percent = (lang.size / totalSize) * 100;
                                     return (
-                                        <div key={lang.name} className="flex flex-col items-center gap-1.5 flex-1 h-full justify-end group">
+                                        <div key={lang.name} className="flex flex-col items-center gap-1 flex-1 h-full justify-end group">
 
                                             {/* 1. PERCENTAGE (Top) */}
-                                            <span className="text-sm font-bold text-white mb-0.5 drop-shadow-md">
+                                            <span className="text-sm font-bold text-white mb-0 drop-shadow-md">
                                                 {percent.toFixed(0)}%
                                             </span>
-                                            <span className="text-[15px] font-bold text-zinc-100 uppercase tracking-wide">
+                                            {/* Shortname moved above bar for visibility */}
+                                            <span className="text-[13px] font-bold text-zinc-400 uppercase tracking-wide mb-1">
                                                 {getShortName(lang.name)}
                                             </span>
 
                                             {/* 2. BAR */}
                                             <motion.div
                                                 initial={{ height: 0 }}
-                                                animate={{ height: `${Math.max(percent, 8)}%` }}
-                                                className="w-full rounded-t-sm opacity-90 group-hover:opacity-100 transition-all relative shadow-lg min-h-1.5"
+                                                animate={{ height: `${Math.max(percent, 10)}%` }}
+                                                className="w-full rounded-t-sm opacity-90 group-hover:opacity-100 transition-all relative shadow-lg min-h-[6px]"
                                                 style={{ backgroundColor: lang.color }}
                                             />
 
-                                            {/* 3. ICON & SHORT NAME (Bottom) */}
-                                            <div className="flex flex-col items-center gap-1 mt-1">
+                                            {/* 3. ICON (Bottom) */}
+                                            <div className="flex flex-col items-center gap-1 mt-2">
                                                 <img
                                                     src={getLangIcon(lang.name)}
                                                     alt=""
-                                                    className="w-4 h-4 object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+                                                    className="w-5 h-5 object-contain opacity-70 group-hover:opacity-100 transition-opacity"
                                                 />
                                             </div>
                                         </div>
@@ -195,9 +203,9 @@ export default function TopLangsCard({ username }: { username: string }) {
                                 <div className="flex flex-col gap-1.5 justify-center">
                                     {top10.slice(0, 5).map(lang => (
                                         <div key={lang.name} className="flex items-center gap-2">
-                                            <span className="w-2 h-2 rounded-full shadow-sm" style={{ backgroundColor: lang.color }}></span>
-                                            <span className="text-xs text-zinc-400 font-medium">{lang.name}</span>
-                                            <span className="text-[15px] text-zinc-100 font-mono ml-auto">
+                                            <span className="w-2.5 h-2.5 rounded-full shadow-sm" style={{ backgroundColor: lang.color }}></span>
+                                            <span className="text-sm text-zinc-300 font-medium">{lang.name}</span>
+                                            <span className="text-[13px] text-zinc-100 font-mono font-bold ml-auto">
                                                 {((lang.size / totalSize) * 100).toFixed(0)}%
                                             </span>
                                         </div>
